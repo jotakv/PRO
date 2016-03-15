@@ -24,31 +24,30 @@ public class Ejer49 {
 		String s;
 		Scanner teclado=new Scanner(System.in);
 		double salario=0;
-		
-		
-		System.out.println("Introduzca las horas trabajadas por el obrero.");
-		s=teclado.next();
-		
-		horas=Double.parseDouble(s);
-		
-		s="";
 		System.out.println("Selecione el turno:");
 		System.out.println("1. Diurno");
 		System.out.println("2. Nocturno ");
 		
 		s=teclado.next();
 		if (s.equalsIgnoreCase("1")) {
-			System.out.println("diurno");
-			salario=DIURNO*horas;
+			tarifa=DIURNO;
 		}else if (s.equalsIgnoreCase("2")) {
+			tarifa=NOCTURNO;
+		}
+		s="";
+		System.out.println("Introduzca las horas trabajadas por el obrero.");
+		s=teclado.next();
+		
+		horas=Double.parseDouble(s);
+		
+		if (horas==DIURNO) {
+			System.out.println("diurno");
+			salario=tarifa*horas;
+		}else if (horas==NOCTURNO) {
 			System.out.println("nocturno");
-			salario=NOCTURNO*horas;
+			salario=tarifa*horas;
 		}
 		
-		 
-		
-		
-		System.out.println("Salario del trabajador: "+salario+" pts");
 		
 		
 

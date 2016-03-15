@@ -38,14 +38,19 @@ public class Ejer49 {
 		
 		s=teclado.next();
 		if (s.equalsIgnoreCase("1")) {
-			System.out.println("diurno");
-			salario=DIURNO*horas;
+			tarifa=DIURNO;
 		}else if (s.equalsIgnoreCase("2")) {
-			System.out.println("nocturno");
-			salario=NOCTURNO*horas;
+			tarifa=NOCTURNO;
 		}
 		
-		 
+		
+		if (horas==DIURNO) {
+			System.out.println("diurno");
+			salario=tarifa*horas;
+		}else if (horas==NOCTURNO) {
+			System.out.println("nocturno");
+			salario=tarifa*horas;
+		}
 		
 		
 		System.out.println("Salario del trabajador: "+salario+" pts");
