@@ -9,7 +9,8 @@ import java.util.Scanner;
  *   con los siguientes puntos:
 	a.-  La tarifa del turno de diurno es 500 pts/h
 	b.-  la tarifa del turno de nocturno es 800 pts/h 
-
+	c.-  En caso de trabajar un domingo la tarifa se incrementa
+	 en 200 pts/h para el turno de diurno y 300 pts/h para el turno de nocturno.
  * @author Usuario
  *
  */
@@ -19,9 +20,13 @@ public class Ejer49 {
 		// TODO Auto-generated method stub
 		final double DIURNO=500;
 		final double NOCTURNO=800;
-		double tarifa = 0;
+		final double DOMINGONOCTURNO=300;
+		final double DOMINGODIURNO=200;
+		 
 		double horas=0;
 		String s;
+		 
+		boolean isDiurno=false;
 		Scanner teclado=new Scanner(System.in);
 		double salario=0;
 		
@@ -40,17 +45,46 @@ public class Ejer49 {
 		if (s.equalsIgnoreCase("1")) {
 			System.out.println("diurno");
 			salario=DIURNO*horas;
+			 
+			isDiurno=true;
 		}else if (s.equalsIgnoreCase("2")) {
 			System.out.println("nocturno");
 			salario=NOCTURNO*horas;
+			 
+			isDiurno=false;
 		}
+		s="";
 		
+		boolean condicion=true;
+		do {
+			System.out.println("¿Ha trabajado el domingo?. S/N");
+			s=teclado.next();
+			if (s.equalsIgnoreCase("s")) {
+				condicion=true;
+				
+				if (isDiurno==true) {
+					salario=salario+DOMINGODIURNO;
+				}else {
+					//isDiurno==false
+					salario=salario+DOMINGONOCTURNO;
+					
+				}
+				
+			}else if (s.equalsIgnoreCase("n")) {
+				condicion=true;
+				
+			}else {
+				System.out.println("Por favor solo puede seleccionar S/N. Dónde S significa Si y N siginifica No");
+				condicion=false;
+			}
+			
+		} while (condicion==false);
 		 
 		
 		
-		System.out.println("Salario del trabajador: "+salario+" pts");
+		System.out.println("Salario diario del trabajador: "+salario+" pts");
 		
-		
+		teclado.close();
 
 	}
 
