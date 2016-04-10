@@ -1,0 +1,67 @@
+package ejercicios;
+
+import java.util.Scanner;
+
+/**
+ * 69.-Crear un menú a través de programa Java que permita elegir y realizar cada 
+ * una de las  siguientes opciones sobre dos números que se han de solicitar previamente:
+		a) Suma
+		b) Resta
+		c) Cociente
+		d) división
+
+ * @author Usuario
+ *
+ */
+public class Ejer69 {
+
+	public static boolean isNumeric(String str)  
+	{  
+	  try  
+	  {  
+	    Double.parseDouble(str);
+	    
+	    
+	  }  
+	  catch(NumberFormatException nfe)  
+	  {  
+	    return false;  
+	  }  
+	  return true;  
+	}
+	
+	private void introduceDouble() {
+		// TODO Auto-generated method stub
+		Scanner teclado= new Scanner(System.in);
+		String cadena="";
+		do {
+			
+			System.out.println("Introduce un número:");
+			cadena=teclado.next();
+			
+		} while (isNumeric(cadena)==false);
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String opcion="";
+		Scanner teclado= new Scanner(System.in);
+		 
+		do {
+			System.out.println("Seleccione una de las operaciones:");
+			System.out.println("a) Suma");
+			System.out.println("b) Resta");
+			System.out.println("c) Cociente");
+			System.out.println("d) división");
+			System.out.println("Introduzca 0 para salir del programa.");
+			opcion=teclado.next();
+			
+			
+			
+		} while (!opcion.equalsIgnoreCase("0"));
+
+	}
+
+}

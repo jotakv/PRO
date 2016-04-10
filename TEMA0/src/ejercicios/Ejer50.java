@@ -11,6 +11,18 @@ import java.util.Scanner;
  * 
  */
 public class Ejer50 {
+	public static boolean isNumeric(String str)  
+	{  
+	  try  
+	  {  
+	    Double.parseDouble(str);  
+	  }  
+	  catch(NumberFormatException nfe)  
+	  {  
+	    return false;  
+	  }  
+	  return true;  
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -22,17 +34,28 @@ public class Ejer50 {
 		Scanner teclado= new Scanner(System.in);
 		do {
 			do {
+				System.out.println("Introduzca un numero");
+				numero=teclado.nextDouble();
+				System.out.println("Introduzca otro numero");
+				numero2=teclado.nextDouble();
+				
 				System.out.println("Selecione Suma/Resta,(S/R)");
 				respuesta=teclado.next();
 				
+				if (respuesta.equalsIgnoreCase("S")) {
+					resultado=numero+numero2;
+				}else {
+					resultado=numero-numero2;
+				}
 			} while (!respuesta.equalsIgnoreCase("S")&&!respuesta.equalsIgnoreCase("R"));
+			System.out.println("El resultado de la operación es: "+resultado);
 			do {
-				System.out.println("¿Más datos? SI/NO, (S/N)");    
+				System.out.println("¿Desea salir del programa? SI/NO, (S/N)");    
 				s=teclado.next();
 				
 			} while (!s.equalsIgnoreCase("S")&&!s.equalsIgnoreCase("N"));
 			
-		} while (s.equalsIgnoreCase("si"));
+		} while (s.equalsIgnoreCase("N"));
 		
 		teclado.close();
 	}
