@@ -101,6 +101,7 @@ public class Ejer69 {
 		} while (!opcion.equalsIgnoreCase("0"));
 
 		System.out.println("Fin del programa");
+		teclado.close();
 
 	}
 

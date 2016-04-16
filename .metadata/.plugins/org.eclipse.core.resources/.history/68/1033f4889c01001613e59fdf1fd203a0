@@ -1,0 +1,37 @@
+package ejercicios;
+
+/**
+ * 68 .- Diseñar un algoritmo que sume los N primeros números primos.
+ * 
+ * @author Usuario
+ * 
+ */
+public class Ejer68 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		double numero = 97;
+		int veces=1000;
+		boolean isPrimo = true;
+
+		for (int j = 2; j < veces; j++) {
+			isPrimo = true;
+			for (int i = 2; i < j; i++) {
+				/*System.out.println("Dividendo=divisor*(cociente+resto)");
+				System.out.println(j + "=" + i + "*(" + (j / i) + "+"
+						+ j % i + ")");
+				System.out.println(j % i);*/
+				if (j % i == 0) {
+					isPrimo = false;
+				}
+			}
+
+			if (isPrimo) {
+				System.out.println("El número " + j + " es primo.");
+			}
+		}
+
+	}
+
+}

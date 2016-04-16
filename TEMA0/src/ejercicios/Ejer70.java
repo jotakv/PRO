@@ -1,0 +1,86 @@
+package ejercicios;
+
+/**
+ * 69.-Crear un menú a través de programa Java que permita elegir y realizar
+ * cada una de las siguientes opciones sobre dos números que se han de solicitar
+ * previamente: a) Suma b) Resta c) Cociente d) división 
+70 .- Realizar el
+ * ejercicio anterior para dos matrices de orden 2 x 2.
+ * 
+ * @author Usuario
+ * 
+ */
+public class Ejer70 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[][] matrizA = { { 1, 0 }, { 0, 1 } };
+		
+		int[][] matrizB = { { -8, 4 }, { 2, 5 } };
+
+		int[][] suma = new int[matrizA.length][matrizB.length];
+		int[][] resta = new int[matrizA.length][matrizB.length];
+		int[][] multiplicacion = new int[matrizA.length][matrizB.length];
+
+		/*
+		 * for (int i = 0; i < matrizA.length; i++) { for (int j = 0; j <
+		 * matrizA[i].length; j++) { System.out.print(matrizA[i][j]);
+		 * System.out.print(" "); } System.out.println(); }
+		 */
+
+		for (int i = 0; i < suma.length; i++) {
+
+			for (int j = 0; j < suma[i].length; j++) {
+				suma[i][j] = matrizA[i][j] + matrizB[i][j];
+				resta[i][j] = matrizA[i][j] - matrizB[i][j];
+			}
+
+		}
+		System.out.println("La suma de las dos matrices da como reslutado:");
+		for (int i = 0; i < suma.length; i++) {
+			for (int j = 0; j < suma[i].length; j++) {
+				System.out.print(suma[i][j]);
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+		System.out.println("La resta de las dos matrices da como reslutado:");
+		for (int i = 0; i < resta.length; i++) {
+			for (int j = 0; j < resta[i].length; j++) {
+				System.out.print(resta[i][j]);
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("La multiplicacion de las dos matrices da como reslutado:");
+		
+		
+		int producto=0;
+		for (int i = 0; i < multiplicacion.length; i++) {
+			
+			for (int j = 0; j < multiplicacion[i].length; j++) {
+
+				producto=0;
+					for (int k = 0; k < multiplicacion[i].length; k++) {
+						producto=producto+matrizA[j][k]*matrizB[k][j];
+					}
+					
+					multiplicacion[i][j]=producto;
+				 
+			}
+			 
+		}
+		
+		for (int i = 0; i < suma.length; i++) {
+
+			for (int j = 0; j < suma[i].length; j++) {
+				System.out.print(multiplicacion[i][j]);
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
